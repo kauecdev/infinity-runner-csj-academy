@@ -19,7 +19,7 @@ public class SpawnPlatform : MonoBehaviour
 
         for (int i = 0; i < platforms.Count; i++)
         {
-            Transform platformTransform = Instantiate(platforms[i], new Vector2(i * 30, 0), transform.rotation).transform;
+            Transform platformTransform = Instantiate(platforms[i], new Vector2(i * 30, -4f), transform.rotation).transform;
             currentPlatforms.Add(platformTransform);
             offset += 30f;
         }
