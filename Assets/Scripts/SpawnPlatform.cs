@@ -10,7 +10,7 @@ public class SpawnPlatform : MonoBehaviour
     private List<Transform> currentPlatforms = new List<Transform>();
     private Transform player;
     private Transform currentPlatformPoint;
-    private int platformIndex;
+    private int platformIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class SpawnPlatform : MonoBehaviour
 
         for (int i = 0; i < platforms.Count; i++)
         {
-            Transform platformTransform = Instantiate(platforms[i], new Vector2(i * 30, -4f), transform.rotation).transform;
+            Transform platformTransform = Instantiate(platforms[i], new Vector2(i * 30, -4.5f), transform.rotation).transform;
             currentPlatforms.Add(platformTransform);
             offset += 30f;
         }
@@ -42,7 +42,7 @@ public class SpawnPlatform : MonoBehaviour
             Recycle(currentPlatforms[platformIndex].gameObject);
             platformIndex++;
 
-            if (platformIndex > currentPlatforms.Count)
+            if (platformIndex > currentPlatforms.Count - 1)
             {
                 platformIndex = 0;
             }
@@ -58,7 +58,12 @@ public class SpawnPlatform : MonoBehaviour
 
     public void Recycle(GameObject platform)
     {
-        platform.transform.position = new Vector2(offset, 0f);
+        platform.transform.position = new Vector2(offset, -4.5f);
+
+        if (platform.GetComponent<Platform>() != null)
+        {
+        }
+
         offset += 30f;
     }
 }
