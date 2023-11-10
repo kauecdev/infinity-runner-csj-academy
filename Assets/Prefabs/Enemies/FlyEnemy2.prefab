@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8949802032392847067}
   - component: {fileID: 111808230735013891}
   - component: {fileID: 6927412788192824781}
-  - component: {fileID: 285709170325657592}
+  - component: {fileID: 19746460902792162}
   m_Layer: 0
-  m_Name: FlyEnemy
+  m_Name: FlyEnemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1186e434af6317349b09c00c2a5775cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9723f7309b62cb44bb7acb12ccf06795, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
---- !u!95 &285709170325657592
+--- !u!95 &19746460902792162
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 2836551943998219503}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 400f2f72c72a10547b11acbdfdf0fe07, type: 2}
+  m_Controller: {fileID: 9100000, guid: 26b17d80005168d46a650aaf404df51e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

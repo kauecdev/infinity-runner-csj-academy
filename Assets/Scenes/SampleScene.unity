@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2836551943998219503, guid: a43dcda5378314543bdee5d4f2ec8775, type: 3}
+  - {fileID: 2836551943998219503, guid: 913591c5dfb23de47994a59bd84d664d, type: 3}
   spawnTime: 2
 --- !u!1 &519420028
 GameObject:

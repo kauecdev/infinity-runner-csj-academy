@@ -60,8 +60,9 @@ public class SpawnPlatform : MonoBehaviour
     {
         platform.transform.position = new Vector2(offset, -4.5f);
 
-        if (platform.GetComponent<Platform>() != null)
+        if (platform.GetComponent<Platform>().spawnEnemiesPlatforms != null)
         {
+            platform.GetComponent<Platform>().spawnEnemiesPlatforms.Spawn();
         }
 
         offset += 30f;
