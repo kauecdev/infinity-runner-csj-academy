@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombEnemy : MonoBehaviour
+public class BombEnemy : Enemy
 {
 
     public GameObject bombPrefab;

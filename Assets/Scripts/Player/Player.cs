@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public Animator animator;
     public float speed;
     public float jumpForce;
+    public Transform projectileOrigin;
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Jump();
+        Shoot();
     }
 
     private void FixedUpdate()  
@@ -49,6 +52,14 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
             animator.SetBool("isJumping", false);
+        }
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.K)) 
+        {
+            Instantiate(projectilePrefab, projectileOrigin.position, projectileOrigin.rotation);
         }
     }
 }
