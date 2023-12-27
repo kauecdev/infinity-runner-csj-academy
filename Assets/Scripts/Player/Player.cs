@@ -7,11 +7,13 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private bool isJumping;
 
+    public int health;
     public Animator animator;
     public float speed;
     public float jumpForce;
     public Transform projectileOrigin;
     public GameObject projectilePrefab;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -22,8 +24,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Jump();
-        Shoot();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Shoot();
+        }
     }
 
     private void FixedUpdate()  
@@ -36,14 +45,14 @@ public class Player : MonoBehaviour
         rig.velocity = new Vector2(speed, rig.velocity.y);
     }
 
-    private void Jump()
+    public void Jump()
     {
-        if (!isJumping && Input.GetKeyDown(KeyCode.Space))
+        if (!isJumping)
         {
             isJumping = true;
             rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             animator.SetBool("isJumping", true);
-        } 
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -55,11 +64,18 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.K)) 
+        Instantiate(projectilePrefab, projectileOrigin.position, projectileOrigin.rotation);
+    }
+
+    public void OnHit(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
         {
-            Instantiate(projectilePrefab, projectileOrigin.position, projectileOrigin.rotation);
+            GameController.instance.ShowGameOverPanel();
         }
     }
 }
